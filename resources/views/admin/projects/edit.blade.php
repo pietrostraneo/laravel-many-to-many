@@ -57,6 +57,17 @@
                             id="framework" value="{{ $project['framework'] }}" required>
                     </div>
                     <div class="form-group mt-3">
+                        @foreach ($technologies as $tech)
+                            <div class="d-flex gap-1">
+                                <input type="checkbox" name="technology[]" class=" form-check"
+                                    id="technology-{{ $tech->id }}" value="{{ $tech->id }}"
+                                    {{ $project->technologies->contains($tech->id) ? 'checked' : '' }}>
+                                <label for="technology-{{ $tech->id }}"
+                                    class="text-capitalize form-label">{{ $tech->name }}</label>
+                            </div>
+                        @endforeach
+                    </div>
+                    <div class="form-group mt-3">
                         <label for="assignment_date" class=" form-label ">Assignment Date:</label>
                         <input type="date" name="assignment_date"
                             class="form-control @error('assignment_date') is-invalid @enderror" id="assignment_date"

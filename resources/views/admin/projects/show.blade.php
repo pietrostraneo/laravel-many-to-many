@@ -26,6 +26,14 @@
                                 No type assigned
                             @endif
                         </p>
+                        <p class="card-text">
+                            <strong>Technologies:</strong>
+                            @forelse ($project->technologies as $tech)
+                                {{ $tech->name }},
+                            @empty
+                                <span class="text-danger">No technologies assigned for this project</span>
+                            @endforelse
+                        </p>
                         <p class="card-text"><strong>Supervisors: </strong>{{ $project['supervisors'] }}</p>
                         <p class="card-text"><strong>Framework: </strong>{{ $project['framework'] }}</p>
                     </div>
