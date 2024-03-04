@@ -18,7 +18,14 @@
                                 width="100px">
                         @endif
                         <p class="card-text">{{ $project['description'] }}</p>
-                        <p class="card-text"><strong>Type: </strong>{{ $project->type->name }}</p>
+                        <p class="card-text">
+                            <strong>Type: </strong>
+                            @if ($project->type != null)
+                                {{ $project->type->name }}
+                            @else
+                                No type assigned
+                            @endif
+                        </p>
                         <p class="card-text"><strong>Supervisors: </strong>{{ $project['supervisors'] }}</p>
                         <p class="card-text"><strong>Framework: </strong>{{ $project['framework'] }}</p>
                     </div>
